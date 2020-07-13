@@ -52,11 +52,36 @@ def coin_flip(guess, bet):
 
 #end of coin_flip
 
+def cho_han(guess, bet):
+  global money
+  dice1 = random.choice(range(1,7))
+  dice2 = random.choice(range(1,7))
+  total = dice1 + dice2
+
+  if guess.lower() == "even" and total % 2 == 0:
+    print("You win! The total is Even.")
+    money += bet
+  elif guess.lower() == "odd" and total % 2 != 0:
+    print("You win! The total is Odd.")
+    money += bet
+  elif guess.lower() == "even" and total % 2 != 0:
+    print("You lose. The total is Odd.")
+    money -= bet
+  elif guess.lower() == "odd" and total % 2 == 0:
+    print("You lose. The total is Even.")
+    money -= bet
+
+  print("Your total is $" + str(money) + ".")
+
 
 
 #Call your game of chance functions here
-guess = int(input("Guess: 1 - Heads or 2 - Tails --> "))
-bet = int(input("How much would you like to wager? --> $"))
-coin_flip(guess, bet)
+# guess = int(input("Guess: 1 - Heads or 2 - Tails --> "))
+# bet = int(input("How much would you like to wager? --> $"))
+# coin_flip(guess, bet)
+
 # print("$" + str(money))
 
+guess = input("Guess: Odd or Even --> ")
+bet = int(input("How much would you like to wager? --> $"))
+cho_han(guess, bet)
