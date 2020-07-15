@@ -50,12 +50,14 @@ def coin_flip(guess, bet):
       print("Come again soon.")
     print("You're going home with: $" + str(money) + ".")
 
-#end of coin_flip
+#end of coin_flip()
 
 def cho_han(guess, bet):
   global money
   dice1 = random.choice(range(1,7))
+  print(dice1)
   dice2 = random.choice(range(1,7))
+  print(dice1)
   total = dice1 + dice2
 
   if guess.lower() == "even" and total % 2 == 0:
@@ -72,7 +74,25 @@ def cho_han(guess, bet):
     money -= bet
 
   print("Your total is $" + str(money) + ".")
+#end of cho_han()
 
+def draw_cards(bet):
+  global money
+  deck1 = random.choice(range(1,14))
+  deck2 = random.choice(range(1,14))
+
+  if deck1 > deck2:
+    print("You win! You picked card number ", str(deck1), " against the dealer's ", str(deck2), ".")
+    return money += bet
+  elif deck1 < deck2:
+    print("You lose. The dealer has ", str(deck2), "against your ", str(deck1), ".")
+    return money -= bet
+  else:
+    print("It's a tie!")
+    return money
+
+  print("Your total is $" + str(money) + ".")
+#end of draw_cards()
 
 
 #Call your game of chance functions here
