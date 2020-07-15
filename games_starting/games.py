@@ -83,15 +83,14 @@ def draw_cards(bet):
 
   if deck1 > deck2:
     print("You win! You picked card number ", str(deck1), " against the dealer's ", str(deck2), ".")
-    return money += bet
+    money += bet
   elif deck1 < deck2:
     print("You lose. The dealer has ", str(deck2), "against your ", str(deck1), ".")
-    return money -= bet
+    money -= bet
   else:
     print("It's a tie!")
-    return money
 
-  print("Your total is $" + str(money) + ".")
+  print("Your total is $", str(money))
 #end of draw_cards()
 
 
@@ -102,6 +101,9 @@ def draw_cards(bet):
 
 # print("$" + str(money))
 
-guess = input("Guess: Odd or Even --> ")
+# guess = input("Guess: Odd or Even --> ")
+# bet = int(input("How much would you like to wager? --> $"))
+# cho_han(guess, bet)
+
 bet = int(input("How much would you like to wager? --> $"))
-cho_han(guess, bet)
+draw_cards(bet)
